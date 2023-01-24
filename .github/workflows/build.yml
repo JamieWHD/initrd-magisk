@@ -44,3 +44,10 @@ jobs:
         path: |
             boot-magisk_canary-huskydg.img
             boot-magisk_debug-huskydg.img    
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.12.0-alpha.4
+    - run: |
+        ./magisk_initrd.sh
+        ./magisk_boot.sh
