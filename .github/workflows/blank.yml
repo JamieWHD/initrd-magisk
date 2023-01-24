@@ -1,0 +1,14 @@
+name: Build Magisk Images
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.6
+    - run: |
+        ./magisk_initrd.sh
+        ./magisk_boot.sh
